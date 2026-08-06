@@ -1,21 +1,37 @@
 # Resume Analyzer
 
-## Overview
+## Project Overview
 
-Resume Analyzer is a full-stack web application that helps users analyze their resumes using AI. It evaluates resumes, extracts key skills, provides improvement suggestions, and recommends relevant job opportunities.
+Resume Analyzer is a full-stack web application that uses Google Gemini AI to analyze resumes. It extracts key skills, calculates an ATS score, provides personalized improvement suggestions, and recommends relevant job opportunities. The application also includes secure authentication with email verification, password reset, and JWT-based authorization.
 
+---
 
+## Technology Stack
 
+### Frontend
+- React.js
+- HTML5
+- CSS3
+- JavaScript
+- Vite
 
-## Tech Stack
+### Backend
+- Java
+- Spring Boot
+- Spring Security
+- JWT Authentication
+- Maven
 
-- Frontend: React.js, HTML, CSS
-- Backend: Spring Boot
-- Database: MySQL
-- AI: Google Gemini API
-- Authentication: Spring Security, JWT
-- Email Service: Brevo API
-- Jobs API: Adzuna API
+### Database
+- MySQL
+
+### APIs & Services
+- Google Gemini API
+- Brevo API
+- Adzuna API
+- Apache Tika
+
+---
 
 ## Features
 
@@ -27,9 +43,9 @@ Resume Analyzer is a full-stack web application that helps users analyze their r
 - ATS Score & Feedback
 - Skill Extraction
 - Job Recommendations
-- Secure JWT Authentication  
+- Secure JWT Authentication 
 
-
+---
 
 ## Preview
 
@@ -46,42 +62,73 @@ Resume Analyzer is a full-stack web application that helps users analyze their r
 </p>
 
 
+## Setup Instructions
 
-## Project Structure
-
-```
-Resume-Analyzer/
-├── frontend/      # React application
-├── backend/       # Spring Boot application
-└── database/      # MySQL scripts
-```
-
-## Getting Started
-
-1. Clone the repository
-
-```bash
-git clone https://github.com/your-username/resume-analyzer.git
-```
-
-2. Configure MySQL and API keys in `application.properties`.
-
-3. Run the Spring Boot application.
-
-4. Open:
+1. Clone the repository.
+2. Configure the MySQL database.
+3. Update the required environment variables in `application.properties`.
+4. Run the Spring Boot application.
+5. Open the application in your browser.
 
 ```
 http://localhost:8080
 ```
 
-## Future Improvements
+---
 
-- Resume History
-- Cover Letter Generator
-- Interview Question Generator
-- Multiple Resume Comparison
-- Admin Dashboard
+## Database Configuration
 
-## Disclaimer
+```properties
+spring.datasource.url=YOUR_DATABASE_URL
+spring.datasource.username=YOUR_DATABASE_USERNAME
+spring.datasource.password=YOUR_DATABASE_PASSWORD
 
-This project is developed for learning and portfolio purposes. AI-generated suggestions may vary and should be used as guidance only.
+spring.jpa.hibernate.ddl-auto=update
+```
+
+Required API Keys:
+
+- Google Gemini API
+- Brevo API
+- Google OAuth Client ID & Secret
+- Adzuna API
+- JWT Secret Key
+
+---
+
+## API Endpoints
+
+### Authentication
+
+| Method | Endpoint |
+|--------|----------|
+| POST | `/resumeAnalyser/entry/v1/register` |
+| POST | `/resumeAnalyser/entry/v1/login` |
+| POST | `/resumeAnalyser/entry/v1/verifyEmail` |
+| POST | `/resumeAnalyser/entry/v1/resetOtpSent` |
+| POST | `/resumeAnalyser/entry/v1/verifyResetOtp` |
+| POST | `/resumeAnalyser/entry/v1/resetPassword` |
+
+### Resume
+
+| Method | Endpoint |
+|--------|----------|
+| POST | `/resumeAnalyserCore/service/v1/extract` |
+| GET | `/resumeAnalyserCore/service/v1/lastReport` |
+| POST | `/resumeAnalyserCore/service/v1/logout` |
+| POST | `/resumeAnalyserCore/service/v1/deleteAccount` |
+| POST | `/resumeAnalyserCore/service/v1/isValid` |
+
+---
+
+## Application Screenshots
+
+> Add screenshots of the following pages:
+
+- Home Page
+- Login Page
+- Register Page
+- Dashboard
+- Resume Upload
+- Resume Analysis Result
+- Job Recommendations
