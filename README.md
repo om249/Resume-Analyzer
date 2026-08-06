@@ -1,21 +1,33 @@
-# Resume Analyzer          
-[![Live App](https://img.shields.io/badge/Live-App-brightgreen)](https://resume-analyser-kp0f.onrender.com/)
+# Resume Analyzer
 
+## Overview
 
+Resume Analyzer is a full-stack web application that helps users analyze their resumes using AI. It evaluates resumes, extracts key skills, provides improvement suggestions, and recommends relevant job opportunities.
 
-
-## Description
-
-Resume Analyzer is a full-stack web application that analyzes resumes using Artificial Intelligence and provides meaningful insights such as skill extraction, resume evaluation, and improvement suggestions.
-
-This project integrates **Google Gemini AI** for resume analysis and includes secure authentication features like email verification and password reset using **Brevo** and job suggestions using **Adzuna API**.
 
 
 
 ## Tech Stack
-- Frontend: HTML, CSS, React.js  
-- Backend: Spring Boot  
-- Database: MySQL  
+
+- Frontend: React.js, HTML, CSS
+- Backend: Spring Boot
+- Database: MySQL
+- AI: Google Gemini API
+- Authentication: Spring Security, JWT
+- Email Service: Brevo API
+- Jobs API: Adzuna API
+
+## Features
+
+- User Registration & Login
+- Email Verification
+- Forgot Password
+- Resume Upload (PDF)
+- AI-Based Resume Analysis
+- ATS Score & Feedback
+- Skill Extraction
+- Job Recommendations
+- Secure JWT Authentication  
 
 
 
@@ -35,128 +47,41 @@ This project integrates **Google Gemini AI** for resume analysis and includes se
 
 
 
-## Frontend & Backend Integration Notes
+## Project Structure
 
-- The frontend UI is developed using **React**
-- For deployment, the React application is **built and served by the Spring Boot backend** as static files
-- The React production build files are placed inside the backend’s **static** directory
+```
+Resume-Analyzer/
+├── frontend/      # React application
+├── backend/       # Spring Boot application
+└── database/      # MySQL scripts
+```
 
-### Static & Template Files
-- The `static` folder contains the **React production build files**
-- The `templates` folder inside `static` is used to store **email templates**
-  - Used for **email verification** and **password reset**
+## Getting Started
 
+1. Clone the repository
 
-
-## How to Run the Project Locally
-
-#### 1. Clone the Repository
 ```bash
-git clone https://github.com/Mohamed-Imran-12/Resume-Analyser.git
+git clone https://github.com/your-username/resume-analyzer.git
 ```
 
-#### 2. Open Project in IDE
-Open the project in **IntelliJ IDEA / Eclipse**
+2. Configure MySQL and API keys in `application.properties`.
 
-Open `pom.xml` and allow Maven to download dependencies
+3. Run the Spring Boot application.
 
-#### 3. Configure Credentials (`application.properties`)
+4. Open:
 
-###### Database (ONLY MySQL)
-```properties
-spring.datasource.url=your_DB_URL
-spring.datasource.username=your_DB_USERNAME
-spring.datasource.password=your_DB_PASSWORD
+```
+http://localhost:8080
 ```
 
-###### Google Cloud Platform (Google Sign-In)
-```properties
-spring.security.oauth2.client.registration.google.client-id=your_GCP_ID
-spring.security.oauth2.client.registration.google.client-secret=your_GCP_SECRET
-```
+## Future Improvements
 
-###### Google Gemini AI (Resume Analysis)
-```properties
-genKey=your_GEMINI_API_KEY
-```
-
-###### Mail Service (ONLY Brevo)
-```properties
-apiKey=your_BREVO_MAIL_API
-```
-
-###### Job Suggestions (ONLY Adzuna)
-```properties
-application-id=your_ADZUNA_APP_ID
-application-api-key=your_ADZUNA_API_KEY
-```
-
-###### JWT Credentials
-```properties
-jwt-key=your_OWN_SECRET_KEY (Generate a secure key using any JWT secret generator)
-```
-
-
-#### 4. Run Backend
-Run `ResumeAnalyserApplication.java`
-
-#### 5. Open in Browser
-```
-http://localhost:8080/
-```
-
-
-
-## Important Notes (Must Read)
-
-- Only **Gemini AI** is configured in this project.  
-To use another AI provider, update AI-related code in `appservice.java`.
-
-- Email functionality works **only with Brevo API**.  
-To use another mail provider, update mail-related code in `mailservice.java`.
-
-- AI models evolve quickly.  
-If the configured Gemini model is removed or replaced, update the model in `appservice.java`.
-
-
-
-## Modifying the Frontend UI
-
-Do **not** edit files inside the backend `static` folder directly.
-
-### 1. Run Frontend Separately (Development Mode)
-```bash
-cd "frontend src"
-npm install
-npm run dev
-```
-
-This starts the React development server for UI changes.
-
-
-
-### 2. Build Frontend for Backend Deployment
-```bash
-cd "frontend src"
-npm run build
-```
-
-#### Backend Static Structure
-```text
-static/
-├── assets/
-│   ├── *.css
-│   ├── *.js
-├── index.html
-```
-
-Steps:
-- Delete old `index.html` and files inside `assets`
-- Copy new build files from `dist`
-- Paste them into backend `static` directory
-
-
+- Resume History
+- Cover Letter Generator
+- Interview Question Generator
+- Multiple Resume Comparison
+- Admin Dashboard
 
 ## Disclaimer
-- This project is developed for learning and demonstration purposes
-- AI analysis results may vary and should not be considered professional career advice
+
+This project is developed for learning and portfolio purposes. AI-generated suggestions may vary and should be used as guidance only.
